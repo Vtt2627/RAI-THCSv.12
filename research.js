@@ -14,7 +14,7 @@ function displayResearchDashboard() {
         return;
     }
 
-    const latest = results[results.length - 1];
+        const latest = results[results.length - 1];
     const totalQuestions = latest.totalQuestions || questions.length;
     const avgScale10 = typeof latest.average === "number"
         ? latest.average
@@ -23,10 +23,6 @@ function displayResearchDashboard() {
     total.textContent = "Mã học sinh gần nhất trên thiết bị này: " + latest.studentCode;
     average.textContent = "Điểm: " + latest.score + "/" + totalQuestions +
         " (thang 10: " + avgScale10.toFixed(2) + ")";
-
-    if (window.RaiBackground) {
-        window.RaiBackground.setWarning(latest.score < questions.length / 2);
-    }
 }
 
 function displayResearchResults() {
